@@ -420,9 +420,15 @@ importers:
       '@faker-js/faker':
         specifier: ^10.4.0
         version: 10.4.0
+      '@tanstack/angular-devtools':
+        specifier: ^0.0.2
+        version: 0.0.2(@angular/core@21.2.12(@angular/compiler@21.2.12)(rxjs@7.8.2))(csstype@3.2.3)(solid-js@1.9.12)
       '@tanstack/angular-table':
         specifier: ^9.0.0-alpha.45
         version: link:../../../packages/angular-table
+      '@tanstack/angular-table-devtools':
+        specifier: ^9.0.0-alpha.43
+        version: link:../../../packages/angular-table-devtools
       rxjs:
         specifier: ~7.8.2
         version: 7.8.2
@@ -7511,6 +7517,21 @@ importers:
         specifier: 6.0.3
         version: 6.0.3
 
+  packages/angular-table-devtools:
+    dependencies:
+      '@angular/core':
+        specifier: '>=21.0.0'
+        version: 21.2.12(@angular/compiler@21.2.12)(rxjs@7.8.2)
+      '@tanstack/devtools-utils':
+        specifier: https://pkg.pr.new/TanStack/devtools/@tanstack/devtools-utils@368
+        version: https://pkg.pr.new/TanStack/devtools/@tanstack/devtools-utils@368(@angular/core@21.2.12(@angular/compiler@21.2.12)(rxjs@7.8.2))(@types/react@19.2.14)(preact@10.29.1)(react@19.2.6)(solid-js@1.9.12)(vue@3.5.34(typescript@6.0.3))
+      '@tanstack/table-core':
+        specifier: workspace:*
+        version: link:../table-core
+      '@tanstack/table-devtools':
+        specifier: workspace:*
+        version: link:../table-devtools
+
   packages/lit-table:
     dependencies:
       '@tanstack/store':
@@ -12432,6 +12453,12 @@ packages:
     peerDependencies:
       vite: ^5.2.0 || ^6 || ^7 || ^8
 
+  '@tanstack/angular-devtools@0.0.2':
+    resolution: {integrity: sha512-r6y1+wnoiPeGKMkMGqdXOueO/lNNrAZCEqzc6aXVEx2V1T3Rh3UuoIEg8eIjb2yySMvAUwUibh7kmg+RI+wWfw==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      '@angular/core': '>=21.0.0'
+
   '@tanstack/angular-pacer@0.23.0':
     resolution: {integrity: sha512-ejhXrN4xmdS01ubTotq5AuAcEsZVXjX2HgW8QaeE2f7mMhLqfGeY1tCBtUkdfgdboHAv+oG/SQtj7SmfIJIw/Q==}
     engines: {node: '>=18'}
@@ -12485,8 +12512,41 @@ packages:
       vue:
         optional: true
 
+  '@tanstack/devtools-utils@https://pkg.pr.new/TanStack/devtools/@tanstack/devtools-utils@368':
+    resolution: {tarball: https://pkg.pr.new/TanStack/devtools/@tanstack/devtools-utils@368}
+    version: 0.4.0
+    engines: {node: '>=18'}
+    hasBin: true
+    peerDependencies:
+      '@angular/core': '>=19.0.0'
+      '@types/react': '>=17.0.0'
+      preact: '>=10.0.0'
+      react: '>=17.0.0'
+      solid-js: '>=1.9.7'
+      vue: '>=3.2.0'
+    peerDependenciesMeta:
+      '@angular/core':
+        optional: true
+      '@types/react':
+        optional: true
+      preact:
+        optional: true
+      react:
+        optional: true
+      solid-js:
+        optional: true
+      vue:
+        optional: true
+
   '@tanstack/devtools@0.11.2':
     resolution: {integrity: sha512-K8+tsBx+ptTLqqd4dOF10B6laj1g+XYImqYZL9n0jBINGaT+sOf17PKV9pbBt8kdbZeIGsHaJ5OZWCyZoHqN4A==}
+    engines: {node: '>=18'}
+    hasBin: true
+    peerDependencies:
+      solid-js: '>=1.9.7'
+
+  '@tanstack/devtools@0.12.0':
+    resolution: {integrity: sha512-KiRMl8lFTTpNEOU4kt9mdZqQ8mTVEPwRLE8I1g3IJe5y1WpOhwNUU1E5vCq8VUsWJukszI6QmPbMs4Gw+C3cyQ==}
     engines: {node: '>=18'}
     hasBin: true
     peerDependencies:
@@ -22306,6 +22366,17 @@ snapshots:
       tailwindcss: 4.3.0
       vite: 8.0.11(@types/node@25.6.2)(esbuild@0.28.0)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(sugarss@5.0.1(postcss@8.5.14))(terser@5.46.0)(yaml@2.8.4)
 
+  '@tanstack/angular-devtools@0.0.2(@angular/core@21.2.12(@angular/compiler@21.2.12)(rxjs@7.8.2))(csstype@3.2.3)(solid-js@1.9.12)':
+    dependencies:
+      '@angular/core': 21.2.12(@angular/compiler@21.2.12)(rxjs@7.8.2)
+      '@tanstack/devtools': 0.12.0(csstype@3.2.3)(solid-js@1.9.12)
+      tslib: 2.8.1
+    transitivePeerDependencies:
+      - bufferutil
+      - csstype
+      - solid-js
+      - utf-8-validate
+
   '@tanstack/angular-pacer@0.23.0(@angular/common@21.2.12(@angular/core@21.2.12(@angular/compiler@21.2.12)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.12(@angular/compiler@21.2.12)(rxjs@7.8.2))':
     dependencies:
       '@angular/core': 21.2.12(@angular/compiler@21.2.12)(rxjs@7.8.2)
@@ -22350,7 +22421,32 @@ snapshots:
       solid-js: 1.9.12
       vue: 3.5.34(typescript@6.0.3)
 
+  '@tanstack/devtools-utils@https://pkg.pr.new/TanStack/devtools/@tanstack/devtools-utils@368(@angular/core@21.2.12(@angular/compiler@21.2.12)(rxjs@7.8.2))(@types/react@19.2.14)(preact@10.29.1)(react@19.2.6)(solid-js@1.9.12)(vue@3.5.34(typescript@6.0.3))':
+    optionalDependencies:
+      '@angular/core': 21.2.12(@angular/compiler@21.2.12)(rxjs@7.8.2)
+      '@types/react': 19.2.14
+      preact: 10.29.1
+      react: 19.2.6
+      solid-js: 1.9.12
+      vue: 3.5.34(typescript@6.0.3)
+
   '@tanstack/devtools@0.11.2(csstype@3.2.3)(solid-js@1.9.12)':
+    dependencies:
+      '@solid-primitives/event-listener': 2.4.5(solid-js@1.9.12)
+      '@solid-primitives/keyboard': 1.3.5(solid-js@1.9.12)
+      '@solid-primitives/resize-observer': 2.1.5(solid-js@1.9.12)
+      '@tanstack/devtools-client': 0.0.6
+      '@tanstack/devtools-event-bus': 0.4.1
+      '@tanstack/devtools-ui': 0.5.1(csstype@3.2.3)(solid-js@1.9.12)
+      clsx: 2.1.1
+      goober: 2.1.18(csstype@3.2.3)
+      solid-js: 1.9.12
+    transitivePeerDependencies:
+      - bufferutil
+      - csstype
+      - utf-8-validate
+
+  '@tanstack/devtools@0.12.0(csstype@3.2.3)(solid-js@1.9.12)':
     dependencies:
       '@solid-primitives/event-listener': 2.4.5(solid-js@1.9.12)
       '@solid-primitives/keyboard': 1.3.5(solid-js@1.9.12)
